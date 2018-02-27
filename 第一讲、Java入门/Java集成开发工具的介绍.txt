@@ -1,0 +1,84 @@
+1、集成开发环境
+	IDE Intergrated Development Environment
+
+	用于编写源代码，编译源代码，调试（分析源代码，找出源代码的逻辑问题）源代码，运行源代码的一个工具
+
+	集成开发工具的优点：
+
+	C语言的集成开发环境：	C/C++实验系统
+				DevC++
+				Microsoft Visual C++ 6.0
+				Microsoft Visual Studio(C/C++, C#, VB, F#)
+				CodeBlocks:开源的C与C++集成开发环境
+	
+	Java语言的集成开发环境：JBuilder(IBM， 已经淘汰)
+				**Eclipse(全球使用率最大的Java集成开发环境，开源的工具，并且支持插件：给一个基础的软件框架，基于此框架可以安装其他的一些功能插件)
+				MyEclipse（基于Eclipse的增加了许多插件的一个集成开发环境，不要用：过度依赖，性能差）
+				JCreator(小型的Java开发工具)
+				NetBeans(Sun开发的，现在已被Oracle收购，支持Java， C/C++， PHP)
+				***IntellijIdea(全球最智能的Java集成开发环境， 收费的，捷克的一家公司开发JetBrains)
+	我们用哪个？
+	Eclipse
+
+2、Eclipse的安装与使用
+	www.eclipse.org
+	Eclipse：开始是由IBM公司开发的，后来把Eclipse开放源代码，让所有的开发者都能开发Eclipse的功能与插件，慢慢地形成一个组织
+	
+	1）www.eclipse.org
+	2)Download
+	3)Download Packages: Eclipse for JavaEE Developers(可用于企业级别的开发), Eclipse for Java Developers（标准Java版本的开发工具）
+	4）选择Eclipse for JavaEE Developers 64bit下载
+	5）下载好的zip包，解压到某个目录下
+	6）解压后找到eclipse的目录，打开此目录，eclipse.exe
+	7)双击eclipse.exe打开Eclipse软件
+
+	8）Select a directory as workspace，选择一个目录作为工作空间
+		工作空间：把多个Java项目组织到同一个目录里面，这个目录就叫工作空间
+
+	eclipse的界面介绍：
+		菜单栏：File(文件菜单), Edit（编辑菜单）, Navigate（导航菜单）, 
+			Search（搜索菜单）, Window（eclipse的基本配置和窗口配置）, Help（帮助菜单）, 
+			Run（运行菜单）, Project（项目菜单）
+		工具栏：一些常用功能的快捷按钮 
+			在最右侧有两个按钮，一个Open Perspective, Java EE
+			视图(JavaEE)：Project Explorer项目浏览器视图, DataSource Explorer数据源浏览器视图, 
+				Outline大纲视图, Tasks List任务列表视图, Servers服务器视图, Console控制台视图
+			透视图：多个视图的组合
+			透视图的切换：Open Perspective, 选择想要的视图：Java: Package Explorer包浏览器
+
+			如何展示出想要的视图：Window->Show View->找到想要显示的视图
+
+	项目：
+		项目是由多个.java源代码组合而成的
+
+	创建项目：
+		1)package explorer点击右键->New->Java Project
+		2)File->New->Java Project
+		3)Shift+Alt+N->Java Project
+
+		以上三步后弹出New Java Project窗口
+		输入项目名称FirstJava->Next->Finish
+
+		项目创建成功后展开此项目可看到src, 用来存放Java源代码的目录（请到workspace下找到对应的项目的目录，打开此目录可看到src）
+			项目目录的解析：
+				src：用于存放Java源代码
+				bin：用于存放编译后的class字节码文件
+				.settings 此项目的一些基本配置信息
+				.project文件，.classpath文件  此项目的一些基本信息
+		创建源代码：src上点击右键->New->Class
+			在展开的New Java Class窗口中输入Name->Finish
+
+			把代码写完整后，在代码中点击右键->Run As->Java Application(完成编译和运行的过程，结果显示在Console视图中)
+
+3、Eclipse修改字体大小 
+	Window->Preferences->General->Appearance->Colors And Fonts->Java->Text Editor
+	
+4、Eclipse删除项目
+	项目上点击右键->Delete->确认删除窗口
+	Delete contents from Disk(是否从硬盘中删除项目的所有内容)
+	
+	如果把Detele contents from Disk勾选上了，则所有内容都会从硬盘中删除（前提条件是确定真的不需要此项目的任何内容了）
+	
+5、Eclipse导入项目 
+	Package Explorer空白处点击右键->Import->导入向导->General->Existing Projects into Workspace->
+	Select Root Directory(选择想要导入的项目的根目录)->勾选上Copy Project into Workspace->Finish

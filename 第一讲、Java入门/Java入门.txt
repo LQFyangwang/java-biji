@@ -1,0 +1,161 @@
+1、Java的历史
+	91年，sun开发Oak，用于消费电子产品开发语言。
+	95年，sun公司推出该语言，并改名为Java。
+
+	98年，Java v1.1推出，下载超过2百万，JCP成立
+	99年，Java 2平台源码公开，推出J2EE beta版
+
+	02年，J2EE下载超过2百万，78%的决策者认为，J2EE技术是最有影响力的网络构建开发平台 
+	
+	2010年Sun公司被Oralce公司收购
+
+	900多万的Java开发者，不仅仅包含有桌面端程序开发（小型游戏，桌面客户端，即时通讯软件的开发，报表程序的开发），WEB程序开发（普通的网站，银行网站，银行的系统，
+	证券系统，炒股系统，办公自动化系统，CRM客户关系管理系统），嵌入式设备开发（冰箱，洗衣机，电视机，空调），手机应用开发（安卓操作系统）
+
+2、什么是Java?
+	JAVA是一门编程语言
+
+	JAVA是开发环境，使用此开发环境来编译Java代码
+
+	JAVA是运行环境，使用此运行环境来运行由Java编写的代码
+	
+3、Java版本
+	1)J2SE  Java Standard Edtion, Java标准版本，提供了Java开发者需要的基本语法和许多常用的方法（如对数据进行排序的方法，对字符串操作的方法，）
+	
+	2）J2EE Java Enterprise Edtion, Java企业版本，包含了J2SE的所有功能，并且还提供了中大型WEB应用开发的工具（Java Mail使用Java进行邮件的收发）
+	
+	3）J2ME Java Micro Edition, Java微型版本，是一个精简的J2SE版本，用于做嵌入式设备的开发，嵌入式设备的内存容量比较小，J2ME适合在小内存的嵌入式设备上运行
+		
+	J2ME(嵌入式设备) < J2SE（桌面程序） < J2EE（WEB应用开发，企业级应用开发）
+	
+4、Java的优点
+	1）面向对象的程序设计语言，而不是面向过程的语言；
+		面向过程的开发语言：C语言，自上而下的开发过程
+		面向对象的开发语言：一切皆对象，对象包含的属性和方法
+		
+	2）提供一个解释执行的运行环境，使程序代码独立于操作系统；平台无关性
+		一次编写，到处运行    write once,run anywhere
+		不管安装的是什么系统，windows， linux, 一次编写的Java程序不需要进行任何修改都可以在任何系统中运行
+	
+	3)类似C/C＋＋的风格，且提供丰富的类库(一系列方法的集合)；简单性
+		API Application Programe Interface 应用编程接口
+	
+	4）去掉C和C＋＋中指针、内存管理；安全和可靠性
+		指针的问题：指针是指向内存地址的一种变量，如果指针没有在不需要使用的时候及时销毁掉，则其所指向的内存就被浪费，一旦内存被浪费，计算机性能会降低
+			如果指针的指向出错，也就意味着数据出错，或者程序出错，很容易出现应用程序崩溃的情况
+			
+		Java：把指针去掉，不需要写Java代码的开发者来释放内存的占用，由Java运行环境自动对不需要的内存空间进行回收
+	
+	5）实现多线程，使得程序能够同时执行多个任务
+		同时执行是指同一个时间段，对于计算机来说，CPU分配ns级别或者ms级别的时间段：
+		单核CPU：
+			1-10ns执行程序A
+			11-20ns执行程序B，不执行程序A
+			21-25ns执行程序A，不执行程序B
+			
+		双核CPU：
+			1-10ns，可以执行程序A和程序B 
+			11-20ns执行程序C和程序D，不执行程序A和程序B
+		
+		CPU会根据一定的算法把CPU时间分配给需要执行的程序
+		
+		一个正在运行的程序对应一个进程，一个进程可以包含有多个线程。进程拥有资源，线程使用资源
+		
+		总结：对于单核CPU来说，同一时间段只能执行一个进程里的一个线程
+			对于多核CPU来说，同一时间段能执行多个进程，每个进程里只跑一个线程
+	
+	
+	6）提供代码校验机制以保证安全性；健壮性好
+	
+	7)可维护性高
+	
+	8）复用程度高
+	
+5、Java的运行机制
+	C高级语言：.c源代码->编译.obj->链接->生成对应操作系统的可执行文件（机器语言）
+	
+	Java：.java源代码->编译->.class字节码文件->由Java提供的运行环境解释执行.class字节码文件。每一个步骤都与操作系统无关，平台无关性
+		不管在哪个操作系统上，都需要通过Java的运行环境来解释执行java的字节码文件。只需要安装Java的运行环境就能执行字节码文件
+		
+	Java开发环境：Java Development Kit(Java开发工具包)，提供了编写源代码和编译源代码的功能
+	Java运行环境：Java Runtime Environment(Java运行环境)，提供了解释执行.class字节码文件的功能
+	
+	以上两个部分统一放在SDK(Software Development Kit, 软件开发工具包)
+	
+6、JVM及运行机制
+	JVM Java Virtual Machine Java虚拟机，本质是一个可以运行Java   .class字节码文件的一个小型操作系统
+	
+	在windows,Mac,Linux，此Java虚拟机都是一样的，所以同一个 .class字节码文件在Windows, Mac, Linux都能得到一样的结果
+	
+	JVM虚拟机如何解释执行.class字节码文件:
+		第一步：加载.class文件到类装载器
+		第二步：进行字节码的校验
+		第三步：解释器解释执行.class字节码文件得出结果
+	
+	《深入Java虚拟机》
+	
+7、开发环境的搭建
+	1)确定操作系统的位数
+		
+	2）下载jdk
+		a. 进入到www.oracle.com
+		b. 找到 Downloads->Java SE(最左侧)
+		c. Java Platform (JDK) 8u101 / 8u102    Java的版本号 8u101:8 表示JDK1.8， u:update 101
+			Java 1.6, 1.7, 1.8
+		d. 如果是64位操作系统，则下载jdk-8u101-windows-x64.exe；如果是32位的操作系统，则下载jdk-8u101-windows-i586.exe
+	3）双击刚下载的.exe可执行文件进行安装
+	4）为了操作系统可以找到命令的路径，需要配置环境变量（特别重要）
+		a.计算机右键属性->高级系统设置->环境变量(用户变量和系统变量)
+		b.在用户变量下点击新建一个变量值，变量名为PATH，值为C:\Program Files\Java\jdk1.8.0_101\bin;
+		c.在用户变量下点击新建，变量名为CLASSPATH(告诉操作系统当执行Java程序时从哪个路径去查找Java的类库)
+			值为：C:\Program Files\Java\jdk1.8.0_101\lib\dt.jar,tools.jar;
+			
+		******对于b和c这两个步骤，值有一部分是共用的，则可以把共用的部分抽取出来单独作为一个环境变量
+		JAVA_HOME: C:\Program Files\Java\jdk1.8.0_101
+		
+		PATH: %JAVA_HOME%\bin;    引用一个已经存在的环境变量
+		CLASSPATH: %JAVA_HOME%\lib\dt.jar,tools.jar;
+	
+8、JDK目录分析与常用命令
+	c:\programe files\Java\jdk1.8.0_101
+	
+	bin目录：包含有整个Java常用的命令
+		javac (Java Compile):编译.java源代码的命令，生成.class字节码文件
+		java:解释执行.class字节码文件
+		javadoc:生成Java文档
+		jar:用来打包Java程序为.jar文件
+	include目录：存放c语言的头文件
+	lib:存放了Java的所有类库文件，库文件的后缀名为.jar。执行任何一个Java程序都需要在这个目录下查找.jar文件
+	src.zip:Java所有类库文件的源代码
+
+9、手动编写和运行第一个Java程序
+	/**
+	1、class后面的名称可以是一个单词或多个单词的组合
+		如果是一个单词，则第一个字母大写，其他字母小写
+		如果是多个单词，每个单词的首字母大写，其他字母小写
+	2、每一组大括号的开始括号直接跟代码同一行，不要换行
+	3、一定要有public static void main(String[] args){}
+	3、System第一个字母大写
+	4、保存文件时，文件的名称与public class 后的名称一致，后缀名.java
+	*/
+	public class Hello {
+		public static void main(String[] args) {
+			System.out.println("Hello, Java!");
+		}
+	}
+	
+	编译Java程序：
+		1)cmd， 进入到保存了该.java文件的目录中
+		2）javac Hello.java
+		3)执行完javac后，再Hello.java文件的目录中生成Hello.class
+		4)java Hello    (Hello.class)
+
+10、API文档的使用
+	对java类库的说明文档 
+	
+
+		
+	
+	
+	
+	
